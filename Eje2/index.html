@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+ </head>
+  <body>
+    <section id="ejemplo"></section>
+    <section id="ejemplo2"></section>
+    <section id="ejemplo3"></section>
+
+    <script src="../bower_components/react/react.min.js"></script>
+    <script src="../bower_components/react/react-dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
+    <script type="text/babel">
+
+      var Component1 = React.createClass({
+        render: function(){
+          return (<h1 id="lblTitulo">Titulo en el Component 0</h1>);
+        }
+      });
+
+      var Component2 = React.createClass({
+        render: function(){
+          return (<h1>Titulo en el component 1</h1>);
+        }
+      });
+
+      var Component3 = React.createClass({
+        render: function()
+        {
+          return React.createElement("div", {className: "divReact"},
+            React.createElement("span", {className: "spReact", children: "Texto dentro del span"}),
+            React.createElement("input", {type:"text", value: "My value is...", placeholder: "Write in me!"},
+            React.createElement("label", {className: "lblLabel", value: "Label", children: "Esta es mi etiqueta"}))
+          );
+        }
+      });
+
+      ReactDOM.render(<Component1/>, document.getElementById('ejemplo'));
+      ReactDOM.render(<Component2/>, document.getElementById('ejemplo2'));
+      ReactDOM.render(<Component3/>, document.getElementById('ejemplo3'));
+     </script>
+  </body>
+</html>
